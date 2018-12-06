@@ -172,7 +172,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/06/设计模式_简单工厂/">&lt;h1&gt;设计模式干货系列：（一）简单工厂模式&lt;/h1&gt;</a>
+      <a class="article-title" href="/2018/12/06/设计模式_简单工厂/">设计模式干货系列：（一）简单工厂模式</a>
     </h1>
   
 
@@ -185,21 +185,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p></p><h2>设计模式的六大原则</h2><br><br><p></p>
-<div style="width:100%;text-align:center"><img src="/image/principleTwo.jpg"></div>
-
-<p><strong>1、开闭原则（Open Close Principle）</strong></p>
-<p>开闭原则的意思是：对扩展开放，对修改关闭。在程序需要进行拓展的时候，不能去修改原有的代码，实现一个热插拔的效果。简言之，是为了使程序的扩展性好，易于维护和升级。想要达到这样的效果，我们需要使用接口和抽象类，后面的具体设计中我们会提到这点。</p>
-<p><strong>2、里氏代换原则（Liskov Substitution Principle）</strong><br>里氏代换原则是面向对象设计的基本原则之一。 里氏代换原则中说，任何基类可以出现的地方，子类一定可以出现。LSP 是继承复用的基石，只有当派生类可以替换掉基类，且软件单位的功能不受到影响时，基类才能真正被复用，而派生类也能够在基类的基础上增加新的行为。里氏代换原则是对开闭原则的补充。实现开闭原则的关键步骤就是抽象化，而基类与子类的继承关系就是抽象化的具体实现，所以里氏代换原则是对实现抽象化的具体步骤的规范。</p>
-<p><strong>3、依赖倒转原则（Dependence Inversion Principle）</strong><br>这个原则是开闭原则的基础，具体内容：针对接口编程，依赖于抽象而不依赖于具体。</p>
-<p><strong>4、接口隔离原则（Interface Segregation Principle）</strong><br>这个原则的意思是：使用多个隔离的接口，比使用单个接口要好。它还有另外一个意思是：降低类之间的耦合度。由此可见，其实设计模式就是从大型软件架构出发、便于升级和维护的软件设计思想，它强调降低依赖，降低耦合。</p>
-<p><strong>5、迪米特法则，又称最少知道原则（Demeter Principle）</strong><br>最少知道原则是指：一个实体应当尽量少地与其他实体之间发生相互作用，使得系统功能模块相对独立。</p>
-<p><strong>6、合成复用原则（Composite Reuse Principle）</strong><br>合成复用原则是指：尽量使用合成/聚合的方式，而不是使用继承。</p>
-<p><br></p>
-<div style="width:100%;text-align:center"><img src="/image/principleOne.png"></div>
-
-
-
+        <p></p><h1>简单工厂模式</h1><br><br><p></p>
+<p></p><h2>正文</h2><br>介绍简单工厂模式之前先通过一个披萨项目的例子来引出问题，然后给出简单工厂模式这种解决方案，然后随着披萨项目的不断扩展，遇到新的问题，引出工厂方法模式，然后又遇到新的问题，引出最终解决方案，抽象工厂模式。<br><br><p></p>
+<p><div style="width:100%;text-align:center"><h2>披萨项目介绍</h2></div><br><br><br>比如一个披萨店 ，店长一名，目前卖两种口味披萨，GreekPizza和CheesePizza，每个披萨都有prePare(),bake(),cut(),box()这4种步骤，原料，烘培，切割，打包，最后给用户吃。<br>把上述这个过程抽象后，设计如下：</p>
+<p><strong>Pizza披萨抽象类:</strong></p>
+<p>public abstract class Pizza {<br>    public abstract void prepare();<br>    public abstract void bake();<br>    public abstract void cut();<br>    public abstract void box();<br>}</p>
 
       
 
@@ -409,7 +399,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/08/设计模式/">&lt;h1&gt;设计模式干货系列：（总纲）总体介绍设计模式&lt;/h1&gt;</a>
+      <a class="article-title" href="/2018/05/08/设计模式/">设计模式干货系列：（总纲）总体介绍设计模式</a>
     </h1>
   
 
@@ -422,7 +412,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p></p><h2>设计模式的六大原则</h2><br><br><p></p>
+        <p></p><h1>设计模式的六大原则</h1><br><br><p></p>
 <div style="width:100%;text-align:center"><img src="/image/principleTwo.jpg"></div>
 
 <p><strong>1、开闭原则（Open Close Principle）</strong></p>
