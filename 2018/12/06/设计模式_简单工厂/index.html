@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="零下一度的博客">
 <meta property="og:description" content="简单工厂模式 正文介绍简单工厂模式之前先通过一个披萨项目的例子来引出问题，然后给出简单工厂模式这种解决方案，然后随着披萨项目的不断扩展，遇到新的问题，引出工厂方法模式，然后又遇到新的问题，引出最终解决方案，抽象工厂模式。 披萨项目介绍比如一个披萨店 ，店长一名，目前卖两种口味披萨，GreekPizza和CheesePizza，每个披萨都有prePare(),bake(),cut(),box()这4">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-06T06:56:44.498Z">
+<meta property="og:updated_time" content="2018-12-06T06:59:26.605Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式干货系列：（一）简单工厂模式">
 <meta name="twitter:description" content="简单工厂模式 正文介绍简单工厂模式之前先通过一个披萨项目的例子来引出问题，然后给出简单工厂模式这种解决方案，然后随着披萨项目的不断扩展，遇到新的问题，引出工厂方法模式，然后又遇到新的问题，引出最终解决方案，抽象工厂模式。 披萨项目介绍比如一个披萨店 ，店长一名，目前卖两种口味披萨，GreekPizza和CheesePizza，每个披萨都有prePare(),bake(),cut(),box()这4">
@@ -187,9 +187,11 @@
       
         <p></p><h1>简单工厂模式</h1><br><br><p></p>
 <p></p><h2>正文</h2><br>介绍简单工厂模式之前先通过一个披萨项目的例子来引出问题，然后给出简单工厂模式这种解决方案，然后随着披萨项目的不断扩展，遇到新的问题，引出工厂方法模式，然后又遇到新的问题，引出最终解决方案，抽象工厂模式。<br><br><p></p>
-<p><div style="width:100%;text-align:center"><h2 style="color:blue">披萨项目介绍</h2></div><br>比如一个披萨店 ，店长一名，目前卖两种口味披萨，GreekPizza和CheesePizza，每个披萨都有prePare(),bake(),cut(),box()这4种步骤，原料，烘培，切割，打包，最后给用户吃。<br>把上述这个过程抽象后，设计如下：</p>
-<p><strong>Pizza披萨抽象类:</strong></p>
-<p>public abstract class Pizza {<br>         public abstract void prepare();<br>        public abstract void bake();<br>        public abstract void cut();<br>        public abstract void box();<br>}</p>
+<div style="width:100%;text-align:center"><h2 style="color:blue">披萨项目介绍</h2></div><br>比如一个披萨店 ，店长一名，目前卖两种口味披萨，GreekPizza和CheesePizza，每个披萨都有prePare(),bake(),cut(),box()这4种步骤，原料，烘培，切割，打包，最后给用户吃。<br>把上述这个过程抽象后，设计如下：<br><br><strong>Pizza披萨抽象类:</strong><br>public abstract class Pizza {<br>         public abstract void prepare();<br>        public abstract void bake();<br>        public abstract void cut();<br>        public abstract void box();<br>}<br><strong>GreekPizza披萨类:</strong><br>public class GreekPizza  extends Pizza{<br>    public void prepare(){<br>       System.out.println(“准备GreekPizza~”);<br>    }<br>    public void bake(){<br>        System.out.println(“正在烤GreekPizza~”);<br>    }<br>    public void cut(){<br>        System.out.println(“正在切GreekPizza~”);<br>    }<br>    public void box(){<br>        System.out.println(“正在打包GreekPizza~”);<br>    }<br>}<br><strong>CheesePizza披萨类:</strong><br>public class CheesePizza extends Pizza{<br>   public void prepare(){<br>       System.out.println(“准备CheesePizza~”);<br>    }<br>    public void bake(){<br>        System.out.println(“正在烤CheesePizza~”);<br>    }<br>    public void cut(){<br>        System.out.println(“正在切CheesePizza~”);<br>    }<br>    public void box(){<br>        System.out.println(“正在打包CheesePizza~”);<br>    }<br>}<br><strong>客户端,店长根据客户点的餐生成不同的披萨：</strong><br>try{<br>  Pizza pizza;<br>  if(“cheese”.equal(orderType)) pizza = new CheesePizza();<br>  if(“greek”.equal(orderType)) pizza = new GreekPizza();<br>  }catch(Exception e){<br><br> }<br><code>业务很简答，根据用户想买的披萨，生成不同的披萨。  
+传统的设置这样也没错，如果业务发展，会造成什么问题呢？
+现在如果多了一种口味 `qiaokeliPizza`，正常办法是生成一个`QiaokeliPizza`类，继承于`Pizza`，然后在`OrderPizza`中，添加</code> java<br>if(“qiaokeli”.equal(orderType)) pizza = new QiaokeliPizza();<br><br>如果后来披萨口味越来越多，负责点餐的店长会很不开心的，既要点餐又要做披萨，一个人忙不够来，希望请一个厨师来专门做披萨，那样他才会轻松点。<br>他所想的解决方案，简单工厂模式就可以做到。<br><br><div style="width:100%;text-align:center"><h2 style="color:blue">简单工厂模式</h2></div>
+
+
 
       
 
